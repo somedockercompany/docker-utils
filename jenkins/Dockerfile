@@ -8,6 +8,3 @@ COPY config.json /root/.docker/
 
 RUN apk add docker
 
-
-
-
