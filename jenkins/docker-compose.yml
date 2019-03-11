@@ -1,0 +1,15 @@
+version: '3'
+services:
+  jenkins:
+    image: "somedockercompany/jenkins:latest"
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /jenkins/data:/var/jenkins_home jenkins
+    deploy:
+      replicas: 4
+      restart_policy:
+        condition: on-failure
+        max_attempts: 2
